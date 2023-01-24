@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            font-family: sans-serif;
+        }
+
+        body{
+            background-color: #fdbf00;
+        }
+
+        .kartuUcapan{
+            width: 640px;
+            height: 400px;
+            position: absolute;
+            margin: auto;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            -webkit-perspective: 1299px;
+            perspective: 1200px;
+        }
+
+        .kartuUcapan2{
+            transform: rotate(-5deg);
+        }
+
+        .kartuUcapan2 .luar{
+            transform:rotateY(-130deg)
+        }
+
+        .luar,.inside{
+            height: 100%;
+            width: 50%;
+            position:absolute;
+            left: 50.1%;
+        }
+        
+        .inside{
+            background: linear-gradient(
+                to right, #e0e0e0,#fff 30%
+            );
+            padding: 0 20px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            align-items: center;
+            left: 50%;
+            position: relative;
+        }
+        
+        .pesan{
+            width: 100%;
+            top: 0;
+            position: absolute;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .gambar{
+            width: 30%;
+            height: 400px;
+        }
+
+        .isiSurat{
+            height: 400px;
+            width: 100%;
+            line-height: 2;
+            margin-right: -200px;
+        }
+
+        .isiSurat p{
+            margin-top: 50px;
+            padding: 10px;
+        }
+        .luar{
+            -webkit-transform-style: preverse-3d;
+            transform-style: preserve-3d;
+            z-index: 1;
+            transform-origin: left;
+            transition: 2s;
+        }
+
+        .depan,.back{
+            height: 100%;
+            width: 100%;
+            position: absolute;
+            background-color: #ffffff;
+            backface-visibility: hidden;
+            -webkit-backface-visibility: hidden;
+            transform: rotateX(0deg);
+        }
+
+        .depan{
+            background-color: #ffffff;
+        }
+
+        .back{
+            transform: rotateY(180deg);
+            background: linear-gradient(to left,#e0e0e0,#ffffff 30%);
+        }
+
+        .kueSurat{
+            width: 100%;
+            position: absolute;
+            bottom: 30px;
+        }
+
+        .layarTop,
+        .layarMiddle,
+        .layarBottom{
+            height: 80px;
+            width: 240px;
+            background-repeat: repeat;
+            background-size: 60px 100px;
+            background-position: 28px 0;
+            background-image: linear-gradient(
+            transparent 50px,
+            #fedbab 50px,
+            #fedbab 60px,
+            transparent 60px
+            ),
+            radial-gradient(circle at 30px 5px,#994c10 30px,#fcbf29 31px);
+            border-radius: 10px 10px 0 0;
+            position: relative;
+            margin: auto;
+        }
+
+        .layarMiddle{
+            transform: scale(0.85);
+            top: 6px;
+        }
+
+        .layarTop{
+            transform: scale(0.7);
+            top: 26px;
+        }
+
+        .candle{
+            height: 45px;
+            width: 15px;
+            background: repeating-linear-gradient(
+                45deg,
+                #fd3018 0,
+                #fd3018 5px,
+                #ffa89e 5px,
+                #ffa89e 10px
+            );
+            position: absolute;
+            margin: auto;
+            left:0;
+            right: 0;
+            bottom: 202px;
+        }
+
+        .candle:before{
+            content: "";
+            position: absolute;
+            height: 16px;
+            width: 16px;
+            background-color: #ffa500;
+            border-radius: 0 50% 50% 50%;
+            bottom: 48px;
+            transform: rotate(45deg);
+            left: -1px;
+        }
+
+        .luar p{
+            font-size: 23px;
+            text-transform: uppercase;
+            margin-top: 30px;
+            text-align: center;
+            letter-spacing: 6px;
+            color:#000046 ;
+        }
+
+
+
+    </style>
+</head>
+<body>
+
+    <div class="kartuUcapan">
+        <div class="luar">
+            <div class="depan">
+                <p>Happy Birthday</p>
+                <div class="kueSurat">
+                    <div class="layarTop"></div>
+                    <div class="layarMiddle"></div>
+                    <div class="layarBottom"></div>
+                    <div class="candle"></div>
+                </div>
+            </div>
+            <div class="back"></div>
+        </div>
+        <div class="inside">
+            <div class="pesan">
+                <div class="isiSurat">
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        const isiSurat = document.querySelector(".isiSurat")
+        const nama = "sang Penanya"
+        const kartuUcapan = document.querySelector(".kartuUcapan")
+
+        kartuUcapan.addEventListener("click",function(){
+            kartuUcapan.classList.toggle("kartuUcapan2")
+        })
+
+        const par = document.createElement("p")
+        const teksPesan = document.createTextNode(`Selamat ulang tahun buat ${nama} 🥳 Semoga hari ini menjadi hari yang indah seperti kaca mata yang indah yang selalu kamu pakai.Selain kesehatan, keselamatan, dan kebahagiaan yang ku harapkan untukmu, traktiran dan makan-makan adalah hal penting lain yang selalu aku tunggu 😅😅😅.`)
+        par.appendChild(teksPesan)
+
+        isiSurat.appendChild(par)
+
+
+    </script>
+    
+</body>
+</html>

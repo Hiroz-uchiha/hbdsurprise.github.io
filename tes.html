@@ -1,0 +1,1330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            font-family: sans-serif;
+        }
+
+        
+        .wadah{
+            position: relative;
+        }
+
+        /* Depan */
+        /* Birthday 1 */
+        .container1{
+            text-align: center;
+            width: 100%;
+            height: 100vh;
+            z-index: 3;
+            position: absolute;
+        }
+
+
+        .birthday1{
+            background-image: url("gambar/birthday (4).jpg");
+            background-position:center;
+            text-align: center;
+            width: 100%;
+            height: 100%;
+            padding-top: 250px;
+        }
+
+
+        .birthday1 input[type="text"]{
+            padding: 15px;
+            text-align: center;
+            width: 70%;
+            font-size: 25px;
+            font-style: italic;
+            margin-bottom: 20px;
+            border-radius: 70px;
+            border: none;
+        }
+
+        .birthday1 button{
+            width: 170px;
+            padding: 15px;
+            font-size: 25px;
+            background-color:orangered;
+            border: none;
+            border-radius: 100px;
+            color: white;
+        }
+
+        .birthday1 button:hover{
+            background-color: rgb(165, 44, 0);
+            cursor: pointer;
+        }
+
+
+
+
+
+
+        .container{
+            position: relative;
+            background-color: pink;
+            width: 100%;
+            height: 100vh;
+            position: relative;
+            overflow: hidden;
+        }
+
+
+        
+        .cahaya{
+            position: absolute;
+            background-color: black;
+            width: 100%;
+            height: 100%;
+        }
+
+        .cahayaBuka{
+            opacity: 0;
+            transition: 10s;
+        }
+
+        .lampuMati,.lampuHidup{
+            display: flex;
+            justify-content:space-around;
+            width: 90%;
+            margin: 0 auto;
+            
+        }
+
+        .lampu{
+            height: 60px;
+        }
+
+        .lampuHidup{
+            position: absolute;
+            top: 0;
+            left: 5%;
+            display: none;
+        }
+
+        .lampuMati img,.lampuHidup img{
+            width: 50px;
+        }
+
+        .tombolLampu button,.musik button,.tombolBanner button,
+        .tombolBalon button,
+        .tombolKue button,
+        .tiupLilin button,
+        .tombolKartu button,
+        .bukaSurat button,
+        .penutupAkhir button
+        {
+            padding: 15px;
+            border: none;
+            border-radius: 100px;   
+            background-color: rgb(187, 0, 187);
+            color: white;
+            position: absolute;
+            bottom: 8%;            
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 20px;
+        }
+        
+        .tombolLampu button{
+            left: 44%;
+
+        }
+
+        .musik button{
+            left: 38%;
+        }
+
+        .tombolBanner button {
+            left: 44%;
+        }
+
+        .tombolBalon button {
+            left: 44%;
+        }
+
+        .tombolKue button{
+            left: 44%;
+        }
+
+        .tiupLilin button{
+            left: 46%;
+        }
+
+        .tombolKartu button{
+            left: 41%;
+        }
+
+        .bukaSurat button{
+            left: 45%;
+        }
+
+        .penutupAkhir button{
+            left: 42%;
+        }
+
+        .tombolLampu button:hover,.musik button:hover,.tombolBanner button:hover,
+        .tombolBalon button:hover,
+        .tombolKue button:hover,
+        .tiupLilin button:hover,
+        .tombolKartu button:hover,
+        .bukaSurat button:hover,
+        .penutupAkhir button:hover
+        {
+            background-color: rgb(145, 0, 145);
+            cursor: pointer;
+        }
+
+        .lampuBaru{
+            width: 100%;
+            height: 100px;
+            position: absolute;
+        }
+
+        
+        audio{
+            margin-top: 200px;
+            z-index: -2;
+            opacity: 0;
+        }
+
+        .banner{
+            position: absolute;
+            top: 50px;
+            right: 510px;
+            animation: bannerGerak 5s ;
+        }
+
+        @keyframes bannerGerak {
+            0%{
+                top: -250px;
+                transform: rotate(-45deg);
+            }
+
+            100%{
+                top: 50px;
+            }
+            
+        }
+
+        .isiBalon img{
+            position: absolute;
+            width: 100%;
+            height: 1000px;
+            bottom: 100px;
+            animation: balonGerak 10s;
+            opacity: .4;
+        }
+
+        
+        @keyframes balonGerak {
+            0%{
+                bottom: -1000px;
+                opacity: 0;
+            }
+            
+            100%{
+                opacity: .4;
+                bottom: 100px;
+            }
+        }
+        
+        .kumpulanBalon{
+            display: flex;
+            justify-content: space-around;
+            display: none;
+        }
+
+        .soBalon{
+            margin-left: -950px;
+            animation: balonSmall 10s;
+        }
+
+        .soBalon,.soBalon2{
+            text-align: center;
+            display: flex;
+            width: 250px;
+            flex-wrap: wrap;
+            position:absolute;
+            bottom: 10px;
+            transition: 5s;
+        }
+
+
+        .soBalon img,
+        .soBalon2 img 
+        {
+            width: 120px;
+            transition: 5s;
+            animation: balonSmallGerak 5s alternate infinite;
+            opacity: .4;
+        }
+
+        .soBalon img:nth-child(even),
+        .soBalon2 img:nth-child(even),
+        .soBalon3 img:nth-child(even){
+            width: 120px;
+            transition: 5s;
+            animation: balonSmallGerak2 5s alternate infinite;
+        }
+
+        .soBalon2 {
+            margin-right: -950px;
+            animation: balonSmall2 10s;
+        }
+        
+        @keyframes balonSmall{
+            0%{
+                bottom: -1000px;
+            }
+
+            100%{
+                bottom: 10px;
+            }
+        }
+
+        @keyframes balonSmall2 {
+            0%{
+                bottom:-1000px;
+            }
+
+            100%{
+                bottom: 10px;
+            }
+            
+        }
+
+        @keyframes balonSmallGerak {
+            0%{
+               transform: rotate(45deg);
+            }
+
+            100%{
+                transform: rotate(-45deg);
+            }            
+        }
+
+        @keyframes balonSmallGerak2 {
+            0%{
+                transform: rotate(-45deg);
+            }
+
+            100%{
+                transform: rotate(45deg);
+            }
+        }
+
+
+
+
+
+        /* Kue */
+        .Kue{
+            height: 250px;
+            width: 300px;
+            position: absolute;
+            margin: auto;
+            top: 150px;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            animation: kueGerak 10s;
+            display:none;
+        }
+
+
+        .kue2{
+            animation: kueGerak2 5s;
+            opacity: 0;
+        }
+
+        @keyframes kueGerak {
+            0%{
+                opacity: 0;
+                right: -500px;
+            }
+
+            100%{
+                opacity: 1;
+                right: 0;
+            }
+            
+        }
+
+        @keyframes kueGerak2 {
+            0%{
+                opacity: 1;
+                right: 0px;
+            }
+
+            100%{
+                opacity: 0;
+                right: 500px;
+            }
+            
+        }
+
+
+
+        .cake{
+            height: 70px;
+            width: 180px;
+            background-color: #fcf18e;
+            position: absolute;
+        }
+
+        .c1{
+            bottom: 0;
+            left: 60px;
+            z-index: 3;
+        }
+
+        .cream{
+            background-color: #fa406b;
+            height: 10px;
+            width: 100%;
+            position: absolute;
+            top: 30px;
+        }
+
+        .icing{
+            position: relative;
+        }
+
+        .icing>div{
+            background-color: #fbd028;
+            height: 12.5px;
+            width:26px;
+            border-radius: 0 0 26px 26px;
+            position: absolute;
+        }
+
+        .icing>div:nth-child(1){
+            left: -2px;
+        }
+
+        .icing>div:nth-child(2){
+            left: 26px;
+        }
+
+        .icing>div:nth-child(3){
+            left: 52px;
+        }
+
+        .icing>div:nth-child(4){
+            left: 78px;
+        }
+
+        .icing>div:nth-child(5){
+            left: 104px;
+        }
+
+        .icing>div:nth-child(6){
+            left: 130px;
+        }
+
+        .icing>div:nth-child(7){
+            left: 156px;
+        }
+
+        .cherries>div{
+            background-color: #f7174c;
+            height: 18px;
+            width: 18px;
+            border-radius: 50%;
+            position: absolute;
+            top: -18px;
+        }
+
+        .cherries>div:nth-child(1){
+            left: 8px;
+        }
+
+        .cherries>div:nth-child(2){
+            left: 40px;
+        }
+
+        .cherries>div:nth-child(3){
+            left: 70px;
+        }
+
+        .cherries>div:nth-child(4){
+            left: 100px;
+        }
+
+        .cherries>div:nth-child(5){
+            left: 130px;
+        }
+
+        .cherries>div:nth-child(6){
+            left: 156px;
+        }
+
+        .c2{
+            transform: scale(0.8);
+            bottom: 62px;
+            left: 60px;
+            z-index: 2;
+        }
+        
+        .c3{
+            transform: scale(0.6);
+            bottom: 110px;
+            left: 60px;
+        }
+
+        /* Lilin */
+        .candle{
+            position: absolute;
+            width: 20px;
+            height: 100px;
+            top: -45px;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            background: #fff;
+            border-radius: 3px 3px 0 0;
+            box-shadow: inset -10px 0 0 #fff2c0;
+            z-index: -1;
+        }
+
+        .candle .wick{
+            position: absolute;
+            width: 4px;
+            height: 15px;
+            top: -15px;
+            left: 6px;
+            background: #ad88a9;
+            border-radius: 2px 2px 0 0;
+        }
+
+        .candle .flame{
+            position: absolute;
+            width: 15px;
+            height: 40px;
+            top: -48px;
+            left: 0;
+            background: #ffad00;
+            border-radius: 10px 10px 8px / 30px 30px 12px 12px;
+            animation: wind 4s ease-in-out infinite,size 4s ease-in-out infinite,
+            flicker 4s ease-in-out infinite;
+            transform-origin: 50% 100%;
+            /* display: none; */
+            box-shadow: 100px 100px 5px #ffe6af;
+        }
+
+        @keyframes wind {
+            0%,22%,49%,62%,81%,100%{
+                border-radius: 2px 14px 8px 8px / 20px 20px;
+            }
+            14%,32%,56%,70%,89%{
+                border-radius: 14px 2px 8px 8px / 20px 20px;   
+            }
+        }
+
+        @keyframes size {
+            0%,22%,49%,62%,81%,100%{
+                transform: scale(1,0.9);
+            }
+            14%,32%,56%,70%,89%{
+                transform: scale(0.9,0.9);
+            }
+        }
+
+        
+        @keyframes flicker {
+            0%,22%,49%,62%,81%,100%{
+                box-shadow: 0 0 20px 0 rgba(255,202,0,0.7);
+            }
+            14%,32%,56%,70%,89%{
+                box-shadow: 0 0 30px 0 rgba(255,202,0,0.8);
+            }
+        }
+
+
+        /* Asap */
+         .vap{
+            position: relative;            
+            display: none;
+            z-index: 1;
+            padding: 0 20px;
+            margin-left:110px;
+            
+        }
+        
+        .vap span{
+            position: relative;
+            bottom: 50px;
+            display: block;
+            margin: 0 2px 50px;
+            min-width: 3px;
+            height: 120px;
+            background-color: #fff;
+            border-radius: 50%;
+            animation: animate 5s linear infinite;
+            opacity: 0;
+            filter: blur(8px);
+            animation-delay: calc(var(--i) * -0.5s);
+        }
+
+        @keyframes animate {
+            0%{
+                transform: translateY(0) scaleX(1);
+                opacity: 0;
+            }
+
+            15%{
+                opacity: 1;
+            }
+            
+            50%{
+                transform: translateY(-150px) scaleX(5);
+            }
+
+            95%{
+                opacity: 0;
+            }
+
+
+            100%{
+                transform: translateY(-300px) scaleX(10);
+            }
+        }
+
+
+
+
+        /* Surat */
+        .kartuUcapan{
+            width: 640px;
+            height: 400px;
+            position: absolute;
+            margin: auto;
+            left: 0;
+            right: 300px;
+            top: -80px;
+            bottom: 0;
+            -webkit-perspective: 1299px;
+            perspective: 1200px;
+            display: none;
+            z-index: 10;
+            animation: kartuUcapan 5s;
+        }
+
+        .kartuUcapan2{
+            transform: rotate(-5deg);
+        }
+
+        .kartuUcapan2 .luar{
+            transform:rotateY(-130deg)
+        }
+
+        @keyframes kartuUcapan {
+            0%{
+                opacity: 0;
+                right: -500px;
+            }
+
+            100%{
+                opacity: 1;
+                right: 300px;
+            }
+            
+        }
+
+        .luar,.inside{
+            height: 100%;
+            width: 50%;
+            position:absolute;
+            left: 50.1%;
+        }
+        
+        .inside{
+            background: linear-gradient(
+                to right, rgb(255, 200, 249),rgb(255, 200, 249) 30%
+            );
+            padding: 0 20px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            align-items: center;
+            left: 50%;
+            position: relative;
+        }
+        
+        .pesan{
+            width: 100%;
+            top: 0;
+            position: absolute;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .gambar{
+            width: 30%;
+            height: 400px;
+        }
+
+        .isiSurat{
+            height: 400px;
+            width: 100%;
+            line-height: 2;
+            margin-right: -200px;
+        }
+
+        .isiSurat p{
+            margin-top: 50px;
+            padding: 10px;
+        }
+        .luar{
+            -webkit-transform-style: preverse-3d;
+            transform-style: preserve-3d;
+            z-index: 1;
+            transform-origin: left;
+            transition: 2s;
+        }
+
+        .depan,.back{
+            height: 100%;
+            width: 100%;
+            position: absolute;
+            background-color: rgb(255, 200, 249);
+            backface-visibility: hidden;
+            -webkit-backface-visibility: hidden;
+            transform: rotateX(0deg);
+        }
+
+        .depan{
+            background-color: rgb(255, 200, 249);
+        }
+
+        .back{
+            transform: rotateY(180deg);
+            background: linear-gradient(to left,rgb(255, 200, 249),rgb(255, 200, 249) 30%);
+        }
+
+        .kueSurat{
+            width: 100%;
+            position: absolute;
+            bottom: 30px;
+        }
+
+        .layarTop,
+        .layarMiddle,
+        .layarBottom{
+            height: 80px;
+            width: 240px;
+            background-repeat: repeat;
+            background-size: 60px 100px;
+            background-position: 28px 0;
+            background-image: linear-gradient(
+            transparent 50px,
+            #fedbab 50px,
+            #fedbab 60px,
+            transparent 60px
+            ),
+            radial-gradient(circle at 30px 5px,#994c10 30px,#fcbf29 31px);
+            border-radius: 10px 10px 0 0;
+            position: relative;
+            margin: auto;
+        }
+
+        .layarMiddle{
+            transform: scale(0.85);
+            top: 6px;
+        }
+
+        .layarTop{
+            transform: scale(0.7);
+            top: 26px;
+        }
+
+        .lilinSurat{
+            height: 45px;
+            width: 15px;
+            background: repeating-linear-gradient(
+                45deg,
+                #fd3018 0,
+                #fd3018 5px,
+                #ffa89e 5px,
+                #ffa89e 10px
+            );
+            position: absolute;
+            margin: auto;
+            left:0;
+            right: 0;
+            bottom: 202px;
+        }
+
+        .lilinSurat:before{
+            content: "";
+            position: absolute;
+            height: 16px;
+            width: 16px;
+            background-color: #ffa500;
+            border-radius: 0 50% 50% 50%;
+            bottom: 48px;
+            transform: rotate(45deg);
+            left: -1px;
+        }
+
+        .luar p{
+            font-size: 23px;
+            text-transform: uppercase;
+            margin-top: 30px;
+            text-align: center;
+            letter-spacing: 6px;
+            color:#000046 ;
+        }
+
+ 
+        .penutup{
+            position: relative;
+            display: none;
+            margin-bottom: 30px;
+        }
+        
+        .penutup img{
+            width: 350px;
+            height: 500px;
+            animation: penutupGambar 5s;
+            position: absolute;
+            margin-left: 20px;
+            margin-top: 100px;
+        }
+
+        .teksPenutup{
+            color: white;
+            padding: 40px;
+            font-size: 30px;
+            padding-top: 100px;
+            font-style: italic;
+            width: 73%;
+            right: 0px;
+            margin-top: 50px;
+            position: absolute;
+            text-align: justify;
+            animation: penutupIsi 5s;
+        }
+
+        @keyframes penutupGambar {
+            0%{
+                left: 300px;
+                opacity: 0;
+            }
+
+            100%{
+                left: 0;
+                opacity: 1;
+            }
+        }
+
+        @keyframes penutupIsi {
+            0%{
+                right: -300px;
+                opacity: 0;
+            }
+
+            100%{
+                right: 0;
+                opacity: 1;
+            }
+        }
+
+
+    </style>
+</head>
+<body>
+    <div class="wadah">
+    <div class="container1">
+        <div class="birthday1">
+                <input type="text" placeholder="Masukkan Nama..." class="nama">
+                <br>
+                <button>Kirim</button>
+        </div>
+    </div>
+    
+    <div class="container">
+        <div class="cahaya">
+        </div>
+
+        <div class="lampu">
+            <div class="lampuMati">
+                <img src="gambar/bulb.png">
+                <img src="gambar/bulb.png">
+                <img src="gambar/bulb.png">
+                <img src="gambar/bulb.png">
+                <img src="gambar/bulb.png">
+                <img src="gambar/bulb.png">
+            </div>
+
+            <div class="lampuHidup">
+                <img src="gambar/bulb_blue.png">
+                <img src="gambar/bulb_orange.png">
+                <img src="gambar/bulb_green.png">
+                <img src="gambar/bulb_red.png">
+                <img src="gambar/bulb_yellow.png">
+                <img src="gambar/bulb_pink.png">
+            </div>
+            
+        </div>
+
+
+        <div class="kumpulanBalon">
+            <div class="soBalon">
+                <img src="gambar/b1.png" alt="">
+                <img src="gambar/b2.png" alt="">
+                <img src="gambar/b3.png" alt="">
+                <img src="gambar/b4.png" alt="">
+                <img src="gambar/b5.png" alt="">
+                <img src="gambar/b6.png" alt="">
+            </div>
+    
+            <div class="soBalon2">
+                <img src="gambar/b6.png" alt="">
+                <img src="gambar/b5.png" alt="">
+                <img src="gambar/b4.png" alt="">
+                <img src="gambar/b3.png" alt="">
+                <img src="gambar/b2.png" alt="">
+                <img src="gambar/b1.png" alt="">
+            </div>
+    
+        </div>
+
+        <div class="Kue">
+            <div class="cake c1">
+                <div class="cream"></div>
+                <div class="icing">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+    
+                <div class="cherries">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+            </div>
+    
+            <div class="cake c2">
+                <div class="cream"></div>
+                <div class="icing">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+    
+                <div class="cherries">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+            </div>
+    
+            <div class="cake c3">
+                <div class="cream"></div>
+                <div class="icing">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+    
+                <div class="cherries">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+    
+                <div class="candle">
+                    <div class="wick"></div>
+                    <div class="flame"></div>
+                </div>
+            </div>    
+            
+            <div class="vap">
+                <span style="--i:1;"></span>
+                <span style="--i:3;"></span>
+                <span style="--i:16;"></span>
+                <span style="--i:5;"></span>
+                <span style="--i:20;"></span>
+            </div>
+
+        </div>
+    
+        <div class="kartuUcapan">
+            <div class="luar">
+                <div class="depan">
+                    <p>Happy Birthday</p>
+                    <div class="kueSurat">
+                        <div class="layarTop"></div>
+                        <div class="layarMiddle"></div>
+                        <div class="layarBottom"></div>
+                        <div class="lilinSurat"></div>
+                    </div>
+                </div>
+                <div class="back"></div>
+            </div>
+            <div class="inside">
+                <div class="pesan">
+                    <div class="isiSurat">
+                    </div>
+                </div>
+    
+            </div>
+        </div>
+
+        <div class="penutup">
+            <div class="gambarPenutup">
+                <img src="gambar/gambarku1.png" alt="">
+            </div>
+            <div class="teksPenutup">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut numquam autem culpa tempora provident iste consequuntur distinctio quae rem blanditiis enim cum, dolores officia libero, omnis, quibusdam expedita ipsum inventore. -By Manusia Helm</p>
+            </div>
+        </div>
+        
+        <audio controls autoplay id="myAudio">
+            <source src="Hbd.m4a" type="audio/ogg">
+        </audio>
+
+        </div>
+
+    </div>
+
+
+    <script>
+        const container1 = document.querySelector(".container1")
+
+        const birthday1 = document.querySelector(".birthday1 button")
+
+        birthday1.addEventListener("click",function(){
+            setTimeout(function(){
+                container1.style.display = "none"
+            },100)
+
+        const cahaya = document.querySelector(".cahaya")
+        const container = document.querySelector(".container")
+        const lampuMati = document.querySelector(".lampuMati")
+        const lampuHidup = document.querySelector(".lampuHidup")
+
+        const lampuHidup1 = document.querySelector(".lampuHidup img:nth-child(1)")
+        const lampuHidup2 = document.querySelector(".lampuHidup img:nth-child(2)")
+        const lampuHidup3 = document.querySelector(".lampuHidup img:nth-child(3)")
+        const lampuHidup4 = document.querySelector(".lampuHidup img:nth-child(4)")
+        const lampuHidup5 = document.querySelector(".lampuHidup img:nth-child(5)")
+
+        const isiSurat = document.querySelector(".isiSurat")
+
+            const tombolLampu = document.createElement("div")
+            tombolLampu.classList.add("tombolLampu")
+
+            const btnLampu = document.createElement("button")
+            const teksLampu = document.createTextNode("Nyalakan Lampu")
+
+            btnLampu.appendChild(teksLampu)
+            tombolLampu.appendChild(btnLampu)
+
+        setTimeout(function(){
+            container.appendChild(tombolLampu)
+        },1250)
+
+
+        tombolLampu.addEventListener("click",function(){
+            cahaya.classList.add("cahayaBuka")
+            tombolLampu.remove()
+
+            const dmus = document.createElement("div")
+            dmus.classList.add("musik")
+            const mbutton = document.createElement("button")
+            const tksMusik = document.createTextNode("Mainkan Musik Spesial Untukmu!")
+            mbutton.appendChild(tksMusik)
+            dmus.appendChild(mbutton)
+
+            setTimeout(function(){
+                container.appendChild(dmus)
+            },6000)
+
+            setTimeout(function(){
+                lampuMati.style.display = "none"
+            },5000)
+
+            setTimeout(function(){
+                lampuHidup.style.display = "flex"
+            },5000)
+
+        const audio = document.querySelector("#myAudio")
+            
+
+        
+            dmus.addEventListener("click",function(){
+                function lampu(){
+                    setTimeout(function(){
+                        lampuMati.style.display = "flex"
+                        lampuHidup.style.display = "none"
+                    },0)
+
+                    setTimeout(function(){
+                        lampuMati.style.display = "none"
+                        lampuHidup.style.display = "flex"
+                    },1000)
+                }
+    
+                lampu()
+                setInterval(lampu,2000)
+                console.log("Berhasil")
+
+
+                function randomWarna(){
+                    setTimeout(function(){
+                        container.style.backgroundColor = "pink"
+                        container.style.transition = "1.5s"
+                    },0)
+
+                    setTimeout(function(){
+                        container.style.backgroundColor = "rgb(255, 80, 109)"
+                        container.style.transition = "1.5s"
+                    },2000)
+                }
+
+                setInterval(randomWarna,3000)
+                audio.loop = true;
+                audio.play()
+                dmus.style.display = "none"
+            
+                
+                const tombolBanner = document.createElement("div")
+                tombolBanner.classList.add("tombolBanner")
+                const bannBt= document.createElement("button")
+                const tksBanner = document.createTextNode("Mari Kita Menghias")
+                bannBt.appendChild(tksBanner)
+                tombolBanner.appendChild(bannBt)
+    
+                setTimeout(function(){
+                    container.appendChild(tombolBanner)
+                    container.style.transition = "1s"
+                },5000)
+    
+            
+                const banner = document.createElement("div")
+                banner.classList.add("banner")
+
+                const gbrBanner = document.createElement("img")
+                gbrBanner.setAttribute("src","gambar/banner.png")
+                banner.appendChild(gbrBanner)
+
+            
+            
+            
+            tombolBanner.addEventListener("click",function(){
+                container.appendChild(banner)
+                tombolBanner.remove()
+
+
+                const tombolBalon = document.createElement("div")
+                tombolBalon.classList.add("tombolBalon")
+                const balBt= document.createElement("button")
+                const tksBalon = document.createTextNode("Keluarkan Balon")
+                balBt.appendChild(tksBalon)
+                tombolBalon.appendChild(balBt)
+    
+                setTimeout(function(){
+                    container.appendChild(tombolBalon)
+                },6000)
+    
+
+                const balon = document.createElement("div")
+                balon.classList.add("isiBalon")
+
+                const gbrBalon = document.createElement("img")
+                gbrBalon.setAttribute("src","gambar/Balloon-Border.png")
+                balon.appendChild(gbrBalon)
+
+
+                //kumpulan balon kecil
+                const kumpulanBalon = document.querySelector(".kumpulanBalon")
+
+                const Kue = document.querySelector(".Kue")
+
+                tombolBalon.addEventListener("click",function(){
+                    container.appendChild(balon)
+                    kumpulanBalon.style.display = "flex"
+
+                    tombolBalon.remove()
+
+
+                const tombolKue = document.createElement("div")
+                tombolKue.classList.add("tombolKue")
+
+                const kueBtn = document.createElement("button")
+                const teksKue = document.createTextNode("Keluarkan Kue")
+
+                kueBtn.appendChild(teksKue)
+                tombolKue.appendChild(kueBtn)
+              
+                setTimeout(function(){
+                    container.appendChild(tombolKue)
+                },10000)
+
+                const Kue = document.querySelector(".Kue")
+
+                tombolKue.addEventListener("click",function(){
+                    Kue.style.display = "flex"
+                    tombolKue.remove()
+
+                    const tiupLilin = document.createElement("div")
+                    tiupLilin.classList.add("tiupLilin")
+
+                    const btnTiup = document.createElement("button")
+                    const teksTiup = document.createTextNode("Tiup Lilin")
+                    btnTiup.appendChild(teksTiup)
+
+                    tiupLilin.appendChild(btnTiup)
+
+                    setTimeout(function(){
+                        container.appendChild(tiupLilin)
+                    },10000)
+
+                    const flame = document.querySelector(".flame")
+                    const vap = document.querySelector(".vap")
+
+                    tiupLilin.addEventListener("click",function(){
+
+                     setTimeout(function(){
+                         flame.style.display = "none"
+                         vap.style.display = "flex"
+                     },500)   
+
+                        tiupLilin.remove()
+
+                        const nama = document.querySelector(".nama");
+                        const par = document.createElement("p")
+                        const teksPesan = document.createTextNode(`Selamat ulang tahun buat ${nama.value} 🥳 Semoga hari ini menjadi hari yang indah seperti kaca mata yang indah yang selalu kamu pakai.Selain kesehatan, keselamatan, dan kebahagiaan yang ku harapkan untukmu, traktiran dan makan-makan adalah hal penting lain yang selalu aku tunggu 😅😅😅.`)
+                        par.appendChild(teksPesan)
+
+                        isiSurat.appendChild(par)
+
+                        const tombolKartu = document.createElement("div")
+                        tombolKartu.classList.add("tombolKartu")
+
+                        const btnKartu = document.createElement("button")
+                        const teksKartu = document.createTextNode("Dapatkan Kartu Ucapan")
+                        btnKartu.appendChild(teksKartu)
+
+                        tombolKartu.appendChild(btnKartu)
+
+                        setTimeout(function(){
+                            container.appendChild(tombolKartu)
+                        },2000)
+
+                        const kartuUcapan = document.querySelector(".kartuUcapan")
+
+                        const bukaSurat = document.createElement("div")
+                        bukaSurat.classList.add("bukaSurat")
+
+                        const btnSurat = document.createElement("button")
+                        const teksSurat = document.createTextNode("Buka Surat")
+
+                        btnSurat.appendChild(teksSurat)
+
+                        bukaSurat.appendChild(btnSurat)
+
+                        
+                        tombolKartu.addEventListener("click",function(){
+                            Kue.classList.add("kue2")
+                            tombolKartu.remove()
+                            banner.style.display = "none"
+                            kartuUcapan.style.display = "flex"
+                            
+                            kartuUcapan.addEventListener("click",function(){
+                                kartuUcapan.classList.toggle("kartuUcapan2")                                
+                            })
+                            
+                            
+                            setTimeout(function(){
+                                container.appendChild(bukaSurat)
+                            },5000)
+
+
+                            const penutup = document.querySelector(".penutup")
+
+                            bukaSurat.addEventListener("click",function(){
+                                kartuUcapan.classList.add("kartuUcapan2")
+                                bukaSurat.remove()
+
+                                const penutupAkhir = document.createElement("div")
+                                penutupAkhir.classList.add("penutupAkhir")
+
+                                const btnSurat = document.createElement("button")
+                                const teksSurat = document.createTextNode("Penutup")
+
+                                btnSurat.appendChild(teksSurat)
+                                penutupAkhir.appendChild(btnSurat)
+
+
+                                setTimeout(function(){
+                                container.appendChild(penutupAkhir)
+                            },5000)
+                              
+
+                                penutupAkhir.addEventListener("click",function(){
+                                    kartuUcapan.style.display = "none"
+                                    gbrBalon.style.display = "none"
+                                    bukaSurat.style.display = "none"
+                                    kumpulanBalon.style.display = "none"
+                                    penutup.style.display = "flex"
+                                    penutupAkhir.remove()
+                                })
+                            })
+
+                        })
+
+
+                    })
+
+                })
+                    
+
+                })
+
+            })
+                
+            })
+
+        })
+
+    })
+
+    </script>
+
+
+</body>
+</html>
